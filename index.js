@@ -22,7 +22,7 @@ async function getBunnies(){
         const selector = '#main_table_countries_today > tbody > tr';
 
         const row = await page.$$eval(selector, trs => trs.map(tr => {
-        const tds = [...tr.getElementsByTagName('td')];
+        const tds =  [...tr.getElementsByTagName('td')];
         return tds.map(td => td.textContent);
         }));
         //console.log(row[9][3]);
