@@ -1,4 +1,5 @@
 const puppeteer =require('puppeteer');
+const x=2;
 async function getBunnies(){
     const browser =await puppeteer.launch({
         headless : true,
@@ -26,13 +27,16 @@ async function getBunnies(){
         return tds.map(td => td.textContent);
         }));
         //console.log(row[9][3]);
-
-        for(let i=0;i<70;i++){
-            for(let j=0;j<11;j++){
-                process.stdout.write(row[i][j]+"  ");
-            }
-            console.log('\n');
-        }
+        console.table(row);
+        // for(let i=0;i<70;i++){
+        //     for(let j=0;j<11;j++){
+        //         process.stdout.write(row[i][j]+"  ");
+        //     }
+        //     console.log('\n');
+        // }
+        // const abc=Document.querySelector('p');
+        // console.log(abc);
+        
     }
     catch(err){
         console.error('my error',err);
@@ -40,3 +44,5 @@ async function getBunnies(){
     })
 }
 getBunnies();
+
+    
